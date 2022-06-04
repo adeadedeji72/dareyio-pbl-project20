@@ -82,4 +82,9 @@ docker run --name <container_name> -e MYSQL_ROOT_PASSWORD=<my-secret-pw> -d mysq
  ~~~
  ![](docker_ps-a.jpg)
  
- 
+**Step 3: Connecting to the MySQL Docker Container**
+We can either connect directly to the container running the MySQL server or use a second container as a MySQL client. Let us see what the first option looks like.
+
+**Approach 1**
+
+Connecting directly to the container running the MySQL server:
