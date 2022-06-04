@@ -185,7 +185,7 @@ container running the MySQL server.
 
 Run the MySQL Client Container:
 ~~~
- $ docker run --network tooling_app_network --name mysql-client -it --rm mysql mysql -h mysqlserverhost -u  -p 
+ $ docker run --network tooling_app_network --name mysql-client -it --rm mysql mysql -h mysqlserverhost -u bayo -p 
 ~~~
 Flags used:
 
@@ -197,15 +197,17 @@ Flags used:
 - -u user created from the SQL script
 - admin username-for-user-created-from-the-SQL-script-create_user.sql
 - -p password specified for the user created from the SQL script
+
+![](client_db_connect.jpg)
                                                                          
 ### Prepare database schema ###
 Now you need to prepare a database schema so that the Tooling application can connect to it.
 
-Clone the Tooling-app repository from here
+1. Clone the Tooling-app repository from here
 ~~~                                                                         
  $ git clone https://github.com/darey-devops/tooling.git 
 ~~~
-On your terminal, export the location of the SQL file
+2. On your terminal, export the location of the SQL file
 ~~~                                                                         
  $ export tooling_db_schema=/tooling_db_schema.sql 
 ~~~
@@ -216,3 +218,26 @@ Verify that the path is exported
  echo $tooling_db_schema
 ~~~
 ![](echo_tooling.jpg)                                                                         
+
+3. Use the SQL script to create the database and prepare the schema. With the docker exec command, you can execute a command in a running container.
+~~~ 
+ $ docker exec -i mysql-server mysql -uroot -p$MYSQL_PW < $tooling_db_schema 
+~~~
+ 
+Update the .env file with connection details to the database
+ 
+The .env file is located in the html tooling/html/.env folder but not visible in terminal. you can use vi or nano
+~~~
+sudo vi .env
+
+MYSQL_IP=mysqlserverhost
+MYSQL_USER=username
+MYSQL_PASS=client-secrete-password
+MYSQL_DBNAME=toolingdb
+~~~
+Flags used:
+
+- MYSQL_IP mysql ip address "leave as mysqlserverhost"
+- MYSQL_USER mysql username for user export as environment variable
+- MYSQL_PASS mysql password for the user exported as environment varaible
+- MYSQL_DBNAME mysql databse name "toolingdb"
