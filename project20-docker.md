@@ -111,7 +111,7 @@ Flags used
 
 At this stage you are now able to create a docker container but we will need to add a network. So, stop and remove the previous mysql docker container.
 ~~~
- docker ps -a
+docker ps -a
 docker stop mysql 
 docker rm mysql or <container ID>
 ~~~
@@ -119,4 +119,6 @@ verify that the container is deleted
 ~~~
  docker ps -a
 ~~~
+
+![](docker_rm.jpg)
  
