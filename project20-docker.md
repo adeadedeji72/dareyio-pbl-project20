@@ -144,3 +144,36 @@ Verify with
 ~~~
  
  ![](export_mysql_pw.jpg)
+ 
+Then, pull the image and run the container, all in one command like below:
+~~~
+ $ docker run --network tooling_app_network -h mysqlserverhost --name=mysql-server -e MYSQL_ROOT_PASSWORD=$MYSQL_PW  -d mysql/mysql-server:latest 
+~~~
+Flags used
+
+- -d runs the container in detached mode
+- --network connects a container to a network
+- -h specifies a hostname
+If the image is not found locally, it will be downloaded from the registry.
+
+Verify the container is running:
+~~~
+ $ docker ps -a 
+~~~
+![](running_image.jpg)
+
+It is best practice not to connect to the MySQL server remotely using the root user. Therefore, we will create an SQL script that will create a user we can use to connect remotely.
+
+Create a file and name it create_user.sql and add the below code in the file:
+~~~
+ $ CREATE USER ''@'%' IDENTIFIED BY ''; GRANT ALL PRIVILEGES ON * . * TO ''@'%'; 
+~~~
+Run the script:
+Ensure you are in the directory create_user.sql file is located or declare a path
+~~~
+ $ docker exec -i mysql-server mysql -uroot -p$MYSQL_PW < create_user.sql 
+~~~
+If you see a warning like below, it is acceptable to ignore:
+~~~
+ mysql: [Warning] Using a password on the command line interface can be insecure.
+~~~
