@@ -122,3 +122,25 @@ verify that the container is deleted
 
 ![](docker_rm.jpg)
  
+First, create a network:
+~~~
+ $ docker network create --subnet=172.18.0.0/24 tooling_app_network 
+~~~
+Creating a custom network is not necessary because even if we do not create a network, Docker will use the default network for all the containers you run. By default, the network we created above is of DRIVER Bridge. So, also, it is the default network. You can verify this by running the docker network ls command.
+
+But there are use cases where this is necessary. For example, if there is a requirement to control the cidr range of the containers running the entire application stack. This will be an ideal situation to create a network and specify the --subnet
+
+For clarity’s sake, we will create a network with a subnet dedicated for our project and use it for both MySQL and the application so that they can connect.
+
+Run the MySQL Server container using the created network.
+
+First, let us create an environment variable to store the root password:
+~~~
+ export MYSQL_PW=
+~~~
+Verify with
+~~~
+ echo $MYSQL_PW
+~~~
+ 
+ ![](export_mysql_pw.jpg)
