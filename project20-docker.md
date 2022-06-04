@@ -248,3 +248,34 @@ as a 'recipe' or 'instruction' that tells Docker how to pack your application in
 pre-created Dockerfile, but as a DevOps, you must also be able to write Dockerfiles.
 
 You can watch [this video](https://www.youtube.com/watch?v=hnxI-K10auY) to get an idea how to create your Dockerfile and build a container from it.
+So, let us containerize our Tooling application; here is the plan:
+
+- Make sure you have checked out your Tooling repo to your machine with Docker engine
+- First, we need to build the Docker image the tooling app will use. The Tooling repo you cloned above has a Dockerfile for this purpose. Explore it 
+  and make sure you understand the code inside it.
+- Run docker build command
+- Launch the container with docker run
+- Try to access your application via port exposed from a container
+ 
+Let us begin:
+
+Ensure you are inside the directory "tooling" that has the file Dockerfile and build your container :
+~~~
+ $ docker build -t tooling:0.0.1 . 
+~~~
+In the above command, we specify a parameter -t, so that the image can be tagged tooling"0.0.1 - Also, you have to notice the . at the end. This is important as that tells Docker to locate the Dockerfile in the current directory you are running the command. Otherwise, you would need to specify the absolute path to the Dockerfile.
+ 
+6. Run the container:
+~~~
+ $ docker run --network tooling_app_network -p 8085:80 -it tooling:0.0.1 
+~~~
+Let us observe those flags in the command.
+
+- We need to specify the --network flag so that both the Tooling app and the database can easily connect on the same virtual network we created earlier.
+- The -p flag is used to map the container port with the host port. Within the container, apache is the webserver running and, by default, it listens on port 80. You   can confirm this with the CMD **["start-apache"]** section of the Dockerfile. But we cannot directly use port 80 on our host machine because it is already in use. The workaround is to use another port that is not used by the host machine. In our case, port 8085 is free, so we can map that to port 80 running in the container.
+Note: You will get an error. But you must troubleshoot this error and fix it. Below is your error message. 
+
+ If everything works, you can open the browser and type http://localhost:8085
+
+You will see the login page.
+![](tooling_login.png)
