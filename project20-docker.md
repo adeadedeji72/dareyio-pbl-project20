@@ -224,7 +224,7 @@ Verify that the path is exported
  $ docker exec -i mysql-server mysql -uroot -p$MYSQL_PW < $tooling_db_schema 
 ~~~
  
-Update the .env file with connection details to the database
+4. Update the .env file with connection details to the database
  
 The .env file is located in the html tooling/html/.env folder but not visible in terminal. you can use vi or nano
 ~~~
@@ -241,3 +241,10 @@ Flags used:
 - MYSQL_USER mysql username for user export as environment variable
 - MYSQL_PASS mysql password for the user exported as environment varaible
 - MYSQL_DBNAME mysql databse name "toolingdb"
+
+ 5. Run the Tooling App
+Containerization of an application starts with creation of a file with a special name - 'Dockerfile' (without any extensions). This can be considered 
+as a 'recipe' or 'instruction' that tells Docker how to pack your application into a container. In this project, you will build your container from a 
+pre-created Dockerfile, but as a DevOps, you must also be able to write Dockerfiles.
+
+You can watch [this video](https://www.youtube.com/watch?v=hnxI-K10auY) to get an idea how to create your Dockerfile and build a container from it.
