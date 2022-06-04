@@ -177,3 +177,42 @@ If you see a warning like below, it is acceptable to ignore:
 ~~~
  mysql: [Warning] Using a password on the command line interface can be insecure.
 ~~~
+
+### Connecting to the MySQL server from a second container running the MySQL client utility ###
+                                                                         
+The good thing about this approach is that you do not have to install any client tool on your laptop, and you do not need to connect directly to the 
+container running the MySQL server.
+
+Run the MySQL Client Container:
+~~~
+ $ docker run --network tooling_app_network --name mysql-client -it --rm mysql mysql -h mysqlserverhost -u  -p 
+~~~
+Flags used:
+
+- --name gives the container a name
+- -it runs in interactive mode and Allocate a pseudo-TTY
+- --rm automatically removes the container when it exits
+- --network connects a container to a network
+- -h a MySQL flag specifying the MySQL server Container hostname
+- -u user created from the SQL script
+- admin username-for-user-created-from-the-SQL-script-create_user.sql
+- -p password specified for the user created from the SQL script
+                                                                         
+### Prepare database schema ###
+Now you need to prepare a database schema so that the Tooling application can connect to it.
+
+Clone the Tooling-app repository from here
+~~~                                                                         
+ $ git clone https://github.com/darey-devops/tooling.git 
+~~~
+On your terminal, export the location of the SQL file
+~~~                                                                         
+ $ export tooling_db_schema=/tooling_db_schema.sql 
+~~~
+You can find the tooling_db_schema.sql in the tooling/html/tooling_db_schema.sql folder of cloned repo.
+
+Verify that the path is exported
+~~~
+ echo $tooling_db_schema
+~~~
+![](echo_tooling.jpg)                                                                         
