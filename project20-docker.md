@@ -51,3 +51,17 @@ Verify that you can run docker commands without sudo.
 docker run hello-world
 ~~~
 
+### **MySQL in container** ###
+
+Let us start assembling our application from the Database layer – we will use a pre-built MySQL database container, configure it, and make sure it is ready to receive requests from our PHP application.
+
+**Step 1: Pull MySQL Docker Image from Docker Hub Registry**
+Start by pulling the appropriate Docker image for MySQL. You can download a specific version or opt for the latest release, as seen in the following command:
+~~~
+docker pull mysql/mysql-server:latest
+~~~
+List the images with
+~~~
+docker image ls
+~~~
+![](docker_image_ls.jpg)
