@@ -279,3 +279,4 @@ Note: You will get an error. But you must troubleshoot this error and fix it. Be
 
 You will see the login page.
 ![](tooling_login.png)
+![](curl_localhost_8085.jpg)
