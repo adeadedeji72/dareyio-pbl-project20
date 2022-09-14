@@ -284,6 +284,7 @@ You will see the login page.
  #### PRACTICE TASKS ####
  
  PART 1
+ 
  Write a Dockerfile for the TODO app (see the complete project folder)
  Create a network for the project:
  ~~~
@@ -328,3 +329,9 @@ You will see the login page.
  Go to http://localhost:8000
  
 ![](todo.png)
+ 
+ PART 2
+ 
+1. Create an account in Docker Hub
+1. Create a new Docker Hub repository
+1. Push the docker images from your PC to the repository
