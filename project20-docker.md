@@ -336,4 +336,4 @@ You will see the login page.
 1. Create a new Docker Hub repository
 1. Push the docker images from your PC to the repository
  
- ![](docker_push.png)
+![](doker_push.png)
