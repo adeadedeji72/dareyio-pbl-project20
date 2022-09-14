@@ -309,5 +309,19 @@ You will see the login page.
  CREATE DATABASE tododb;
 ~~~
 
- Run the command below to create a database *(tododb)* and database user *(todo)*
+ Run the command below to create a database **(tododb)** and database user **(todo)**
+~~~
+ sudo git clone https://github.com/darey-devops/php-todo
+~~~
+ To download the project directory into your workspace
+ 
+ Create files that will hold commands to be run in the todo app container, like the .env (holds dabase connection parametes, enviromnet file), start-apache.sh (holds commands to start php) Dockerfile. See samples in the project directory.
+ Navigate to the folder holding the Dockerfile, run the command below to create an image
+~~~
+ docker build -t todo:0.1 .
+~~~
+ Start a container based on the image created above
+~~~
+ docker run --network todo-network -p 8000:8000 -it todo:0.1
+~~~
  
