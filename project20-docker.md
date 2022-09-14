@@ -325,3 +325,6 @@ You will see the login page.
  docker run --network todo-network -p 8000:8000 -it todo:0.1
 ~~~
  
+ Go to http://localhost:8000
+ 
+![](todo.png)
