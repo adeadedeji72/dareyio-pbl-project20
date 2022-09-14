@@ -289,10 +289,21 @@ You will see the login page.
  ~~~
  docker network create --subnet=172.30.0.0/24 todo-network
  ~~~
+ 
  export password and create a database user and a database with this script
+~~~
+ export MYSQL_PS=password
  ~~~
  
  Run the database container with:
  
  ~~~
+ docker run --network todo-network -h mysqlserverhost --name=mysql-server -e MYSQL_ROOT_PASSWORD=$MYSQL_PS  -d mysql/mysql-server:5.7.22
+ ~~~
+ -h assigns hostname to the mysql container
+ 
+ Create a file and name it create_user.sql and add the below code in the file:
+~~~
+ CREATE USER 'todo'@'%' IDENTIFIED BY 'password'; GRANT ALL PRIVILEGES ON * . * TO 'todo'@'%';
+~~~
  
