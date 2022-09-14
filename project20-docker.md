@@ -280,3 +280,19 @@ Note: You will get an error. But you must troubleshoot this error and fix it. Be
 You will see the login page.
 ![](tooling_login.png)
 ![](curl_localhost_8085.jpg)
+ 
+ #### PRACTICE TASKS ####
+ 
+ PART 1
+ Write a Dockerfile for the TODO app (see the complete project folder)
+ Create a network for the project:
+ ~~~
+ docker network create --subnet=172.30.0.0/24 todo-network
+ ~~~
+ export password and create a database user and a database with this script
+ ~~~
+ 
+ Run the database container with:
+ 
+ ~~~
+ 
