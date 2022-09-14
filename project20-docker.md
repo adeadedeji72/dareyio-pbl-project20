@@ -305,5 +305,9 @@ You will see the login page.
  Create a file and name it create_user.sql and add the below code in the file:
 ~~~
  CREATE USER 'todo'@'%' IDENTIFIED BY 'password'; GRANT ALL PRIVILEGES ON * . * TO 'todo'@'%';
+ 
+ CREATE DATABASE tododb;
 ~~~
+
+ Run the command below to create a database *(tododb)* and database user *(todo)*
  
