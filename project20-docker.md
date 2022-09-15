@@ -337,3 +337,14 @@ You will see the login page.
 1. Push the docker images from your PC to the repository
  
 ![](doker_push.png)
+
+ 
+ PART 3
+ 
+ * Connect your repo to Jenkins
+ 
+ Repo connected to Jenkins using github credentials and repo url
+ 
+ ![](repo-jenkins_connection.jpg)
+ 
+ 
