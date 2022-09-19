@@ -348,3 +348,6 @@ You will see the login page.
  ![](repo-jenkins_connection.jpg)
  
  
+* Create a multi-branch pipeline
+ ![](multibranch_builds.jpg)
+ 
