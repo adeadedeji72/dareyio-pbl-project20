@@ -351,3 +351,10 @@ You will see the login page.
 * Create a multi-branch pipeline
  ![](multibranch_builds.jpg)
  
+* Simulate a CI pipeline from a feature and master branch using previously created Jenkinsfile
+ 
+ ![CI_Jenkinsfile](Jenkinsfile_CI.jpg)
+ 
+* Ensure that the tagged images from your Jenkinsfile have a prefix that suggests which branch the image was pushed from. For example, bugfix-0.1
+ 
+ ![](branch_based_imagename.jpg)
