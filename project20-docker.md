@@ -358,3 +358,11 @@ You will see the login page.
 * Ensure that the tagged images from your Jenkinsfile have a prefix that suggests which branch the image was pushed from. For example, bugfix-0.1
  
  ![](branch_based_imagename.jpg)
+ 
+ Write a docker-compose file to implement the tooling app.
+ See below the docker-compose file a tooling.yaml file.
+ 
+~~~
+ docker-compose -f tooling.yaml  up -d
+~~~
+![](docker-compose_running.png)
