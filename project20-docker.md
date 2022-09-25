@@ -371,3 +371,7 @@ You will see the login page.
  docker-compose -f tooling.yaml  up -d
 ~~~
 ![](docker-compose_running.png)
+           
+Verify that the images pushed from the CI can be found at the registry.
+
+![](verifiy_images_repo.jpg)                                                                          
