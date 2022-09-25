@@ -1,3 +1,4 @@
+![verify_images_repo](https://user-images.githubusercontent.com/99276192/192161186-685f603c-ed3d-49ae-afc6-1f2c7f5c6aaf.jpg)
 # MIGRATION TO THE СLOUD WITH CONTAINERIZATION. PART 1 – DOCKER AND DOCKER COMPOSE #
 
 ## Install Docker and prepare for migration to the Cloud ##
