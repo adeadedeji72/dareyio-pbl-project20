@@ -313,7 +313,7 @@ You will see the login page.
  Run the command below to create a database **(tododb)** and database user **(todo)**
  
 ~~~
- docker exec -i mysql-server mysql -uroot -p$MYSQL_PW < create_user_db.sql
+ docker exec -i mysql-server mysql -uroot -p$MYSQL_PS < create_user_db.sql
 ~~~                                                                          
 
 ~~~
