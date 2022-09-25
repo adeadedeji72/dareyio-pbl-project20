@@ -374,4 +374,4 @@ You will see the login page.
            
 Verify that the images pushed from the CI can be found at the registry.
 
-![](verifiy_images_repo.jpg)                                                                          
+![](verify_images_repo.jpg)                                                                          
