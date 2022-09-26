@@ -417,3 +417,4 @@ NOTE: That db connection parameters had to be hardcoded into the *db_conn.php* f
 docker-compose down -v
 ~~~ 
 to re-activate this for the next run.                                                                          
+An init.sql script helps to initialize the database with the given SQL file so as to create the parameters provided in the database environment.
