@@ -411,5 +411,9 @@ volumes:
   tooling_frontend:
   db:
 ~~~                                                                          
-NOTE: That db connection parameters had to be hardcoded into the db_conn.php file before a sucessful db connection was establised.
-     The docker-entrypoint-initdb.d folder will only be run once while the container is created (instantiated) so you actually have to do a ~~~ docker- compose down -v ~~~ to re-activate this for the next run.                                                                          
+NOTE: That db connection parameters had to be hardcoded into the *db_conn.php* file before a sucessful db connection was establised.
+     The docker-entrypoint-initdb.d folder will only be run once while the container is created (instantiated) so you actually have to do a 
+~~~
+docker-compose down -v
+~~~ 
+to re-activate this for the next run.                                                                          
