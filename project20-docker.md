@@ -378,7 +378,7 @@ Verify that the images pushed from the CI can be found at the registry.
 ![](verify_images_repo.jpg)                                                                    
 ![verify_images_repo](https://user-images.githubusercontent.com/99276192/192161186-685f603c-ed3d-49ae-afc6-1f2c7f5c6aaf.jpg)
 
-** Deployment with Docker Compose **
+**Deployment with Docker Compose**
 
 Bellow is the version of the tooling.yaml file that worked. Note the volume entries in the db part of the file
 ~~~                                                                          
