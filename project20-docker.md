@@ -476,3 +476,9 @@ Implement a similar pipeline for the PHP-todo app.
 ![](todo_dockerhub_image.png)
                                                                           
 ![](todo_test_stage.png)
+                                                                          
+
+                                                                          
+Ensure that both pipelines have a clean-up stage where all the images are deleted on the Jenkins server.
+![](jenkinsfile_cleanup_stage.png)
+![](workspace_cleanup.png)                                                                          
