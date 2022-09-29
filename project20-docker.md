@@ -418,3 +418,57 @@ docker-compose down -v
 ~~~ 
 to re-activate this for the next run.                                                                          
 An init.sql script helps to initialize the database with the given SQL file so as to create the parameters provided in the database environment.
+
+                                                                          
+#### **Practice Task №2 – Complete Continous Integration With A Test Stage** ####
+                                                                          
+1. Update your Jenkinsfile with a test stage before pushing the image to the registry.  
+                                                                          
+~~~
+pipeline {
+    agent any
+
+    stages {
+        stage('Build Docker Image') {
+            steps {
+                sh 'docker build -t bayo72/bayo_devops:'+env.BRANCH_NAME+'-0.2 .'
+            }
+        }
+        stage('Login to Dockerhub') {
+            steps {
+                withCredentials([string(credentialsId: 'dockerhubPWD', variable: 'sec_docker1')]) {
+                sh 'docker login -u bayo72 -p ${sec_docker1}' }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                script {
+                    def response = httpRequest 'http://localhost:5000/'
+                    println('Status: '+response.status)
+
+                    if (response.status != 200) {
+                        currentBuild.result = 'ABORTED'
+                        error('Endpoint return non 200 code...')
+                    }
+                    println('Message: Test GET http://localhost:5000/ passed')
+                }
+            }
+        }
+        stage('Push Image to Dockerhub') {
+            steps {
+                sh 'docker push bayo72/bayo_devops:'+env.BRANCH_NAME+'-0.2'
+            }
+        }
+    }
+}
+~~~
+                                                                          
+Install **http request** plugin in Jenkins to implement the http request test. This ensures that the tooling site http endpoint is able to return status code **200**. Any other code will be determined a stage failure.
+
+![](http_request_plugin.png)                                                                          
+                                                                          
+![](jenkins_test_stage.png)
+                                                                          
+                                                                          
+                                                                          
