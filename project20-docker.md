@@ -471,4 +471,8 @@ Install **http request** plugin in Jenkins to implement the http request test. T
 ![](jenkins_test_stage.png)
                                                                           
                                                                           
+Implement a similar pipeline for the PHP-todo app.
                                                                           
+![](todo_dockerhub_image.png)
+                                                                          
+![](todo_test_stage.png)
